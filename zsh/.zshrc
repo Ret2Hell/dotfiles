@@ -14,7 +14,7 @@ zstyle ':z4h:' auto-update-days '28'
 zstyle ':z4h:bindkey' keyboard  'pc'
 
 # Start tmux if not already in tmux.
-zstyle ':z4h:' start-tmux command tmux -u new -A -D -t z4h
+#zstyle ':z4h:' start-tmux command tmux -u new -A -D -t z4h
 
 # Whether to move prompt to the bottom when zsh starts and on Ctrl+L.
 zstyle ':z4h:' prompt-at-bottom 'no'
@@ -158,3 +158,10 @@ source ~/.local/share/omarchy/default/bash/envs
 
 
 export PATH=$PATH:/home/ret2hell/.spicetify
+
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    # No agent running → start one
+    eval "$(ssh-agent -s)" > /dev/null
+fi
+ssh-add ~/.ssh/id_ed25519 2>/dev/null
+ssh-add ~/.ssh/id_ed25519_work     2>/dev/null

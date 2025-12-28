@@ -43,3 +43,4 @@ fi
 . "$Z4H"/z4h.zsh || return
 
 setopt rcs
+export PATH="/home/ret2hell/Documents/flutter/bin:$PATH"
