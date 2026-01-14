@@ -95,15 +95,17 @@ compdef _directories md
 # Define named directories: ~w <=> Windows home directory on WSL.
 [[ -z $z4h_win_home ]] || hash -d w=$z4h_win_home
 
-# Define aliases.
-alias tree='tree -a -I .git'
-
-# Add flags to existing aliases.
-alias ls="${aliases[ls]:-ls} -A"
-
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt glob_dots     # no special treatment for file names with a leading dot
 setopt no_auto_menu  # require an extra TAB press to open the completion menu
+
+# History control
+HISTCONTROL=ignoreboth
+HISTSIZE=32768
+HISTFILESIZE="${HISTSIZE}"
+
+# Ensure command hashing is off for mise
+set +h
 
 # File system
 if command -v eza &> /dev/null; then
@@ -135,14 +137,49 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+alias c='opencode'
+
 # Tools
 n() { if [ "$#" -eq 0 ]; then nvim .; else nvim "$@"; fi; }
+
+# Cat
+alias cat='bat'
+
+# Compression
+compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
+alias decompress="tar -xzf"
+
+# Format an entire drive for a single partition using exFAT
+format-drive() {
+  if [ $# -ne 2 ]; then
+    echo "Usage: format-drive <device> <name>"
+    echo "Example: format-drive /dev/sda 'My Stuff'"
+    echo -e "\nAvailable drives:"
+    lsblk -d -o NAME -n | awk '{print "/dev/"$1}'
+  else
+    echo "WARNING: This will completely erase all data on $1 and label it '$2'."
+    read -rp "Are you sure you want to continue? (y/N): " confirm
+
+    if [[ "$confirm" =~ ^[Yy]$ ]]; then
+      sudo wipefs -a "$1"
+      sudo dd if=/dev/zero of="$1" bs=1M count=100 status=progress
+      sudo parted -s "$1" mklabel gpt
+      sudo parted -s "$1" mkpart primary 1MiB 100%
+
+      partition="$([[ $1 == *"nvme"* ]] && echo "${1}p1" || echo "${1}1")"
+      sudo partprobe "$1" || true
+      sudo udevadm settle || true
+
+      sudo mkfs.exfat -n "$2" "$partition"
+
+      echo "Drive $1 formatted as exFAT and labeled '$2'."
+    fi
+  fi
+}
 
 if command -v mise &> /dev/null; then
   eval "$(mise activate zsh)"
 fi
-
-
 
 if command -v zoxide &> /dev/null; then
   eval "$(zoxide init zsh)"
@@ -165,3 +202,11 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
 fi
 ssh-add ~/.ssh/id_ed25519 2>/dev/null
 ssh-add ~/.ssh/id_ed25519_work     2>/dev/null
+
+# pnpm
+export PNPM_HOME="/home/ret2hell/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

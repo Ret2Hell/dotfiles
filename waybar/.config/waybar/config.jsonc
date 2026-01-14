@@ -16,7 +16,8 @@
   "modules-center": [
     "hyprland/workspaces", 
     "custom/update", 
-    "custom/screenrecording-indicator"
+    "custom/screenrecording-indicator",
+    "custom/voxtype"
   ],
   "modules-right": [
     "network",
@@ -121,6 +122,7 @@
     "scroll-step": 2,
     "format-muted": "",
     "format-icons": {
+      "headphone": "",
       "default": ["", "", ""]
     }
   },
@@ -141,6 +143,19 @@
     "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
     "signal": 8,
     "return-type": "json"
+  },
+  "custom/voxtype": {
+    "exec": "omarchy-voxtype-status",
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+      "idle": "",
+      "recording": "󰍬",
+      "transcribing": "󰔟"
+    },
+    "tooltip": true,
+    "on-click-right": "omarchy-voxtype-config",
+    "on-click": "omarchy-voxtype-model"
   },
   "tray": {
     "icon-size": 12,
