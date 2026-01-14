@@ -9,13 +9,13 @@
   "margin-right": 6,
   "modules-left": [
     "custom/omarchy",
-    "wlr/taskbar", 
+    "wlr/taskbar",
     "clock",
     "hyprland/window"
   ],
   "modules-center": [
-    "hyprland/workspaces", 
-    "custom/update", 
+    "hyprland/workspaces",
+    "custom/update",
     "custom/screenrecording-indicator",
     "custom/voxtype"
   ],
@@ -169,7 +169,7 @@
   "temperature": {
     "format": " {temperatureC}°C",
     "interval": 2,
-    "tooltip": false    
+    "tooltip": false
   },
   "backlight": {
     "device": "intel_backlight",

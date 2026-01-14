@@ -80,7 +80,7 @@
 #taskbar button:hover {
   border-radius: 15px;
   background-color: @foreground;
-  
+
 }
 
 
@@ -101,7 +101,8 @@
 #custom-screenrecording-indicator,
 #power-profiles-daemon,
 #custom-update,
-#custom-power {
+#custom-power,
+#custom-voxtype {
   background-color: @background;
   color: @foreground;
   min-width: 12px;
@@ -163,13 +164,4 @@ tooltip {
 #tray menu {
   background-color: @background;
   color: @foreground;
-}
-
-#custom-voxtype {
-  min-width: 12px;
-  margin: 0 0 0 7.5px;
-}
-
-#custom-voxtype.recording {
-  color: #a55555;
 }
