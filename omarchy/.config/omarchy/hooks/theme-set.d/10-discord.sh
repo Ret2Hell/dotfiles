@@ -14,12 +14,12 @@ possible_paths=(
 
 create_dynamic_theme() {
 
-    cat > "$output_file" << EOF
+cat > "$output_file" << EOF
     /**
-    * @name Omarchy
+    * @name Match System
     * @author @bypass_
     * @version 0.1.0
-    * @description Match Omarchy system theme.
+    * @description Match your current system theme.
     * @source https://github.com/imbypass/base16-Discord
     **/
     @import url("https://imbypass.github.io/base16-discord/omarchy-discord.theme.css");

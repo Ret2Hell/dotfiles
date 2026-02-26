@@ -3,7 +3,7 @@
 new_zed_file="$HOME/.config/omarchy/current/theme/zed.json"
 
 create_dynamic_theme() {
-    cat > "$new_zed_file" << EOF
+cat > "$new_zed_file" << EOF
     {
       "\$schema": "https://zed.dev/schema/themes/v0.1.0.json",
       "name": "Omarchyy",
@@ -112,7 +112,7 @@ create_dynamic_theme() {
 EOF
 }
 
-if ! command -v zeditor >/dev/null 2>&1; then
+if ! command -v zeditor >/dev/null 2>&1 && ! command -v zed >/dev/null 2>&1; then
     skipped "Zed"
 fi
 

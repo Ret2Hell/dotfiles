@@ -203,10 +203,3 @@ fi
 ssh-add ~/.ssh/id_ed25519 2>/dev/null
 ssh-add ~/.ssh/id_ed25519_work     2>/dev/null
 
-# pnpm
-export PNPM_HOME="/home/ret2hell/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
