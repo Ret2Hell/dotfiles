@@ -1,0 +1,17 @@
+[dotfiles]
+"~/.gitconfig" = { source = "git/.gitconfig", mode = "symlink" }
+"~/.gitconfig-work" = { source = "git/.gitconfig-work", mode = "symlink" }
+"~/.config/herdr" = { source = "herdr/.config/herdr", mode = "symlink-each", manifest = "git" }
+"~/.config/hypr" = { source = "hypr/.config/hypr", mode = "symlink-each", manifest = "git" }
+"~/.config/kitty" = { source = "kitty/.config/kitty", mode = "symlink-each", manifest = "git" }
+"~/.config/nvim" = { source = "nvim/.config/nvim", mode = "symlink-each", manifest = "git" }
+"~/.config/omarchy" = { source = "omarchy/.config/omarchy", mode = "symlink-each", manifest = "git" }
+"~/.config/opencode" = { source = "opencode/.config/opencode", mode = "symlink-each", manifest = "git" }
+"~/.config/spicetify" = { source = "spicetify/.config/spicetify", mode = "symlink-each", manifest = "git" }
+"~/.config/yazi" = { source = "yazi/.config/yazi", mode = "symlink-each", manifest = "git" }
+"~/.config/zsh" = { source = "zsh/.config/zsh", mode = "symlink-each", manifest = "git" }
+"~/.local/bin/omarchy-yazi-generator" = { source = "yazi/.local/bin/omarchy-yazi-generator", mode = "symlink" }
+"~/.local/bin/omarchy-yazi-reload" = { source = "yazi/.local/bin/omarchy-yazi-reload", mode = "symlink" }
+"~/.zshenv" = { source = "zsh/.zshenv", mode = "symlink" }
+"~/setup-omarchy-plugins" = { source = "scripts/setup-omarchy-plugins", mode = "symlink" }
+"~/setup.sh" = { source = "spicetify/setup.sh", mode = "symlink" }
