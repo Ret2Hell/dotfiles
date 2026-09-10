@@ -131,3 +131,87 @@
 2026-08-22T11:41:25.181508Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
 2026-08-22T11:41:25.287613Z  INFO herdr::client: handshake succeeded version=20 encoding=SemanticFrame
 2026-08-22T11:41:49.082007Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=87045
+2026-08-22T16:54:50.462771Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=20221
+2026-08-22T16:54:50.463296Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-08-22T16:54:50.476856Z  INFO herdr::client: handshake succeeded version=20 encoding=SemanticFrame
+2026-08-22T18:13:27.793456Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=20221
+2026-08-22T18:16:11.180172Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=63446
+2026-08-22T18:16:11.180214Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-08-22T18:16:11.417568Z  INFO herdr::client: handshake succeeded version=20 encoding=SemanticFrame
+2026-08-22T18:16:19.666389Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=63446
+2026-08-22T18:16:21.007136Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=64595
+2026-08-22T18:16:21.007179Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-08-22T18:16:21.167230Z  INFO herdr::client: handshake succeeded version=20 encoding=SemanticFrame
+2026-08-22T18:16:22.778431Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=64595
+2026-08-23T11:55:32.546311Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=27723
+2026-08-23T11:55:32.546480Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-08-23T11:55:32.546605Z  INFO herdr::client: handshake succeeded version=20 encoding=SemanticFrame
+2026-08-23T17:09:39.645796Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=27723
+2026-08-24T08:08:39.341243Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=49268
+2026-08-24T08:08:39.341269Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-08-24T08:08:39.344251Z  INFO herdr::client: handshake succeeded version=20 encoding=SemanticFrame
+2026-08-24T11:57:44.446287Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=49268
+2026-08-24T12:02:19.694920Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=172691
+2026-08-24T12:02:19.694981Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-08-24T12:02:19.786915Z  INFO herdr::client: handshake succeeded version=20 encoding=SemanticFrame
+2026-08-24T12:34:46.773420Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=172691
+2026-08-24T18:41:21.711371Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=6674
+2026-08-24T18:41:21.712429Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-08-24T18:41:21.721191Z  INFO herdr::client: handshake succeeded version=20 encoding=SemanticFrame
+2026-08-24T19:40:44.526668Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=6674
+2026-08-25T08:19:18.864744Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=10662
+2026-08-25T08:19:18.865019Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-08-25T08:19:18.914036Z  INFO herdr::client: handshake succeeded version=20 encoding=SemanticFrame
+2026-08-25T13:37:58.027431Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=10662
+2026-08-26T07:19:26.911974Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=6820
+2026-08-26T07:19:26.912220Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-08-26T07:19:26.945827Z  INFO herdr::client: handshake succeeded version=20 encoding=SemanticFrame
+2026-08-26T15:11:15.360601Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=6820
+2026-08-27T07:36:28.307348Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=6449
+2026-08-27T07:36:28.307475Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-08-27T07:36:28.311735Z  INFO herdr::client: handshake succeeded version=20 encoding=SemanticFrame
+2026-08-27T08:45:13.303924Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=6449
+2026-08-27T08:55:50.416852Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=3936
+2026-08-27T08:55:50.416996Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-08-27T08:55:50.457554Z  INFO herdr::client: handshake succeeded version=20 encoding=SemanticFrame
+2026-08-27T09:39:22.523104Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=3936
+2026-08-27T09:39:24.097037Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=33582
+2026-08-27T09:39:24.097090Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-08-27T09:39:24.118656Z  INFO herdr::client: handshake succeeded version=20 encoding=SemanticFrame
+2026-08-27T12:35:11.229258Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=33582
+2026-08-27T13:42:13.412201Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=8749
+2026-08-27T13:42:13.412884Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-08-27T13:42:13.420139Z  INFO herdr::client: handshake succeeded version=20 encoding=SemanticFrame
+2026-08-27T15:02:06.483516Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=8749
+2026-08-28T07:35:29.675824Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=7623
+2026-08-28T07:35:29.676202Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-08-28T07:35:29.754434Z  INFO herdr::client: handshake succeeded version=20 encoding=SemanticFrame
+2026-08-28T15:38:20.985810Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=7623
+2026-08-31T07:47:51.334134Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=6711
+2026-08-31T07:47:51.334264Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-08-31T07:47:51.362273Z  INFO herdr::client: handshake succeeded version=20 encoding=SemanticFrame
+2026-08-31T07:47:54.168837Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=6711
+2026-08-31T09:48:41.115331Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=13684
+2026-08-31T09:48:41.115366Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-08-31T09:48:41.292967Z  INFO herdr::client: handshake succeeded version=20 encoding=SemanticFrame
+2026-08-31T15:02:37.592648Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=13684
+2026-09-08T07:52:56.980999Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=14077
+2026-09-08T07:52:56.981503Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-09-08T07:52:56.996869Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.0
+2026-09-08T13:44:29.706062Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=3579
+2026-09-08T13:44:29.706275Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-09-08T13:44:29.737480Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.0
+2026-09-08T15:56:47.368400Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=3579
+2026-09-09T07:23:08.538672Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=16496
+2026-09-09T07:23:08.538804Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-09-09T07:23:08.545175Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.0
+2026-09-09T15:22:17.201626Z  INFO herdr::client: client terminal unavailable; detaching err=I/O error (os error 5)
+2026-09-09T15:22:17.203072Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=16496
+2026-09-09T15:22:19.405100Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=171558
+2026-09-09T15:22:19.405140Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-09-09T15:22:19.646455Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.0
+2026-09-09T15:22:21.875713Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=171558
+2026-09-09T19:09:44.190307Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=216587
+2026-09-09T19:09:44.190343Z  INFO herdr::client: connecting to server path=/home/ret2hell/.config/herdr/herdr-client.sock
+2026-09-09T19:09:44.231607Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.0
+2026-09-09T19:49:43.491923Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=216587

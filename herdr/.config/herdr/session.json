@@ -2,31 +2,47 @@
   "version": 3,
   "workspaces": [
     {
-      "id": "w1V",
+      "id": "w2V",
       "custom_name": null,
-      "identity_cwd": "/home/ret2hell",
+      "identity_cwd": "/home/ret2hell/Work/github.com/raiselabs-mohamed/OteraX",
       "public_pane_numbers": {
-        "16": 1
+        "8": 4,
+        "5": 1
       },
-      "next_public_pane_number": 2,
+      "next_public_pane_number": 6,
       "public_tab_numbers": [
-        1
+        1,
+        2
       ],
-      "next_public_tab_number": 2,
+      "next_public_tab_number": 4,
       "tabs": [
         {
-          "custom_name": null,
+          "custom_name": "OteraX",
           "layout": {
-            "Pane": 16
+            "Pane": 5
           },
           "panes": {
-            "16": {
-              "cwd": "/home/ret2hell"
+            "5": {
+              "cwd": "/home/ret2hell/Work/github.com/raiselabs-mohamed/OteraX"
             }
           },
           "zoomed": false,
-          "focused": 16,
-          "root_pane": 16
+          "focused": 5,
+          "root_pane": 5
+        },
+        {
+          "custom_name": null,
+          "layout": {
+            "Pane": 8
+          },
+          "panes": {
+            "8": {
+              "cwd": "/home/ret2hell/Work/github.com/raiselabs-mohamed/OteraX"
+            }
+          },
+          "zoomed": false,
+          "focused": 8,
+          "root_pane": 8
         }
       ],
       "active_tab": 0
@@ -34,7 +50,7 @@
   ],
   "active": 0,
   "selected": 0,
-  "sidebar_width": 27,
-  "sidebar_section_split": 0.5,
+  "sidebar_width": null,
+  "sidebar_section_split": null,
   "collapsed_space_keys": []
 }

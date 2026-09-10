@@ -7,10 +7,12 @@
           "id": "omarchy.indicators"
         },
         {
+          "id": "omarchy.clock",
           "format": "dddd HH:mm",
           "formatAlt": "d MMMM 'W'ww yyyy",
-          "id": "omarchy.clock",
-          "verticalFormat": "HH\n—\nmm"
+          "verticalFormat": "HH\n—\nmm",
+          "birthYear": 2003,
+          "lifeExpectancy": 70
         },
         {
           "id": "omarchy.keyboard-layout"
@@ -39,7 +41,8 @@
         },
         {
           "id": "akitaonrails.ai-usagebar",
-          "lastSelectedEntryId": "opencode-go",
+          "lastSelectedEntryId": "openai",
+          "showProvider": false,
           "showValue": true
         },
         {
@@ -63,6 +66,10 @@
     "lock": 300,
     "screensaver": 150
   },
-  "plugins": [],
+  "plugins": [
+    {
+      "id": "b.okomart"
+    }
+  ],
   "version": 1
 }
