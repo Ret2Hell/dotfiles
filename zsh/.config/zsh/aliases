@@ -21,3 +21,6 @@ alias decompress="tar -xzf"
 # mise
 alias mr='mise run'
 alias mup='MISE_MINIMUM_RELEASE_AGE=0 mise up'
+
+# git
+alias gc='git clone'

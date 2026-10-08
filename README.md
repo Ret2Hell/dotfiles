@@ -43,6 +43,12 @@ mise bootstrap dotfiles apply
 mise bootstrap dotfiles status --missing
 ```
 
+Yazi plugins are gitignored, so install them once per machine after the first apply:
+
+```sh
+ya pkg install
+```
+
 Mise refuses to replace conflicting regular files or directories. Compare and
 move any existing target out of the way before applying. Use `--force` only
 after reviewing the dry-run and confirming that the existing target can be
