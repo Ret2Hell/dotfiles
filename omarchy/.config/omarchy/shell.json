@@ -1,18 +1,29 @@
 {
   "bar": {
-    "centerAnchor": "omarchy.clock",
+    "centerAnchor": "tmn73.calendar",
     "layout": {
       "center": [
         {
           "id": "omarchy.indicators"
         },
         {
-          "id": "omarchy.clock",
+          "id": "tmn73.calendar",
+          "birthYear": 2003,
           "format": "dddd HH:mm",
           "formatAlt": "d MMMM 'W'ww yyyy",
+          "hideDeclined": true,
+          "lifeExpectancy": 70,
+          "showYearProgress": false,
           "verticalFormat": "HH\n—\nmm",
-          "birthYear": 2003,
-          "lifeExpectancy": 70
+          "weekStartDay": "Monday",
+          "showWorkingLocation": false,
+          "agendaPlacement": "beside",
+          "showShortcutLegend": false,
+          "showQuickAdd": false,
+          "showNextUp": true,
+          "showUpcomingDays": true,
+          "shortcutLegendExpanded": false,
+          "language": "en"
         },
         {
           "id": "omarchy.keyboard-layout"
@@ -41,9 +52,15 @@
         },
         {
           "id": "akitaonrails.ai-usagebar",
+          "barWindow": "session",
+          "colorCodeUsage": false,
           "lastSelectedEntryId": "openai",
+          "showAll": false,
           "showProvider": false,
           "showValue": true
+        },
+        {
+          "id": "omaplug"
         },
         {
           "id": "omarchy.monitor"
@@ -66,10 +83,6 @@
     "lock": 300,
     "screensaver": 150
   },
-  "plugins": [
-    {
-      "id": "b.okomart"
-    }
-  ],
+  "plugins": [],
   "version": 1
 }

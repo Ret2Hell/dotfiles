@@ -1,3 +1,6 @@
+# Machine-local mise settings and group selection
+mise.local.toml
+
 # Zsh runtime state (history, compdump) must not be tracked
 zsh/.config/zsh/.zsh_history
 zsh/.config/zsh/.zcompdump*
@@ -8,5 +11,6 @@ zsh/.config/zsh/*.zwc
 *.bak
 *.bak.*
 herdr/.config/herdr/session.json
+herdr/.config/herdr/release-notes.json
 omarchy/.config/omarchy/current/
 **/node_modules/

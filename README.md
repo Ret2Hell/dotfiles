@@ -1,6 +1,17 @@
 # Dotfiles
 
-These dotfiles are managed with [mise](https://mise.jdx.dev/dotfiles.html).
+These dotfiles are managed with [mise](https://mise.jdx.dev/dotfiles.html)
+2026.10.3 or newer, using one dotfile group per application.
+
+Each group's directory mirrors `$HOME`: for example,
+`zsh/.zshenv` deploys to `~/.zshenv`, and
+`yazi/.local/bin/omarchy-yazi-reload` deploys to
+`~/.local/bin/omarchy-yazi-reload`. Groups use `symlink-each`, so
+application-managed files can coexist with managed links.
+
+Every group uses `manifest = "git"`: only files in Git's index are deployed.
+Gitignored or untracked files are not deployed. Herdr logs, session state,
+and release notes are also explicitly excluded; Herdr manages these locally.
 
 ## Everyday workflow
 
@@ -8,8 +19,8 @@ Run dotfile commands from this repository:
 
 ```sh
 cd ~/dotfiles
-mise bootstrap dotfiles status
-mise bootstrap dotfiles diff
+mise dot status
+mise dot diff
 ```
 
 Edit a linked file normally, then review and commit it with Git:
@@ -23,25 +34,33 @@ git push
 ```
 
 No apply step is needed after editing an existing symlink. Run apply after
-adding, deleting, or moving tracked files, or after changing `mise.toml`:
+adding or moving tracked files, or after changing `mise.toml`:
 
 ```sh
-mise bootstrap dotfiles apply --dry-run --verbose
-mise bootstrap dotfiles apply
+mise dot apply --dry-run --verbose
+mise dot apply
 ```
+
+For deletions, exclusions, or deselected groups, review orphaned files and use
+the explicit pruning workflow below.
 
 ## Set up a new machine
 
-Install Git and mise, then clone this repository at the expected path:
+Install Git and mise 2026.10.3 or newer, then clone this repository at the
+expected path:
 
 ```sh
 git clone git@github.com:Ret2Hell/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 mise trust
-mise bootstrap dotfiles apply --dry-run --verbose
-mise bootstrap dotfiles apply
-mise bootstrap dotfiles status --missing
+mise dot apply --dry-run --verbose
+mise dot apply
+mise dot status --missing
 ```
+
+Group roots are relative to the `dotfiles.root` setting, which this repository
+sets to `~/dotfiles`. If you clone elsewhere, update that setting, for example
+in an ignored `mise.local.toml`.
 
 Yazi plugins are gitignored, so install them once per machine after the first apply:
 
@@ -54,10 +73,49 @@ move any existing target out of the way before applying. Use `--force` only
 after reviewing the dry-run and confirming that the existing target can be
 replaced.
 
+## Choose groups for a machine
+
+All groups apply by default. To select a subset, create an ignored
+`mise.local.toml` in this repository:
+
+```toml
+[bootstrap]
+dotfile_groups = ["git", "zsh", "nvim", "yazi"]
+```
+
+Available groups: `git`, `herdr`, `hypr`, `kitty`, `nvim`, `omarchy`,
+`opencode`, `scripts`, `spicetify`, `yazi`, and `zsh`.
+
+The `scripts` group deploys `~/setup-omarchy-plugins`; the `spicetify` group
+also deploys `~/setup.sh`. Deselecting a group leaves its existing files in
+place until you prune or unapply that group. A local selection replaces the
+selection from other configs; it does not extend it.
+
 ## Add a dotfile
 
-Add the file beneath the package that owns it, using its path relative to
-`$HOME`. For example, to manage `~/.config/foo/config.toml`:
+For a new file belonging to an existing group, preview and capture it:
+
+```sh
+mise dot add --group zsh --dry-run ~/.zprofile
+mise dot add --group zsh --no-apply ~/.zprofile
+git add zsh/.zprofile
+mise dot apply --dry-run --verbose
+```
+
+Capturing with `--no-apply` leaves the live file unchanged. Because it is still
+a regular file, move it to a backup outside the target path before applying,
+then remove the backup once the linked file is verified:
+
+```sh
+mv ~/.zprofile ~/.zprofile.before-mise
+mise dot apply
+mise dot status
+```
+
+Use `--group` to make the destination package explicit: these groups all
+target `~`, so a new path could otherwise match several groups.
+
+Alternatively, move the file into its package manually:
 
 ```sh
 mkdir -p foo/.config/foo
@@ -65,51 +123,64 @@ mv ~/.config/foo/config.toml foo/.config/foo/config.toml
 git add foo/.config/foo/config.toml
 ```
 
-Add a mapping to `mise.toml` when this is a new target directory:
+For a new package, declare its group in `mise.toml`:
 
 ```toml
-"~/.config/foo" = { source = "foo/.config/foo", mode = "symlink-each", manifest = "git" }
+[dotfile_groups.foo]
+root = "foo"
+manifest = "git"
 ```
 
-Then preview and apply it:
+Then preview and apply. No extra mapping is needed for new files or
+directories inside an existing group. If this machine selects groups
+explicitly, add the new group to that selection too.
 
-```sh
-mise bootstrap dotfiles apply --dry-run --verbose
-mise bootstrap dotfiles apply
-mise bootstrap dotfiles status
-```
+Avoid committing credentials, logs, histories, caches, databases,
+`node_modules`, or machine-specific application state. Adding a tracked file
+to `.gitignore` does not untrack it.
 
-For another file inside an already mapped directory, only move it into the
-matching package, add it to Git, and apply. The Git manifest is intentional:
-an untracked source file is not deployed.
+## Stop managing a file or group
 
-Use a whole-file `symlink` entry for standalone files such as `~/.gitconfig`.
-Use `symlink-each` for directories that may also contain application-managed
-files. Avoid committing credentials, logs, histories, caches, databases,
-`node_modules`, or machine-specific application state.
-
-## Stop managing a file
-
-Remove the source from Git and apply the new manifest:
+Remove the source from Git:
 
 ```sh
 git rm package/path/to/file
-mise bootstrap dotfiles apply --dry-run --verbose
-mise bootstrap dotfiles apply
 ```
 
-For `symlink-each`, mise removes the link it previously managed but preserves
-unmanaged neighboring files. Remove the corresponding `mise.toml` entry when
-the entire target is no longer managed.
+To keep the local source instead, add an ignore rule and use
+`git rm --cached package/path/to/file`.
 
-To remove all currently configured links without deleting repository sources:
+Removing a file from a group's manifest, adding an exclusion, deselecting a
+group, or deleting its config can leave previously deployed files orphaned.
+Inspect and remove them explicitly:
 
 ```sh
-mise bootstrap dotfiles unapply --dry-run
-mise bootstrap dotfiles unapply
+mise dot status
+mise dot apply --dry-run --prune
+mise dot apply --prune
 ```
 
-Recreate them with `mise bootstrap dotfiles apply`.
+Pruning covers all orphaned groups and asks for confirmation. It removes only
+links that still point to their recorded sources, or copies that still match
+what mise wrote, unless forced. Unmanaged neighboring files are preserved.
+Back up live runtime state before removing its old managed links.
+
+To remove one group's deployed files without deleting repository sources,
+even after removing the group from config:
+
+```sh
+mise dot unapply --group zsh --dry-run
+mise dot unapply --group zsh
+```
+
+To remove all currently configured links:
+
+```sh
+mise dot unapply --dry-run
+mise dot unapply
+```
+
+Recreate links for selected groups with `mise dot apply`.
 
 ## Pull updates
 
@@ -118,8 +189,10 @@ moved files:
 
 ```sh
 git pull --ff-only
-mise bootstrap dotfiles diff
-mise bootstrap dotfiles apply
+mise dot diff
+mise dot status
+mise dot apply --dry-run --prune
+mise dot apply --prune
 ```
 
 Changes to files already linked are immediately visible and may not produce an
@@ -143,11 +216,13 @@ they would duplicate this repository's Git history and remote workflow.
 ## Useful commands
 
 ```sh
-mise bootstrap dotfiles status            # Show deployment state
-mise bootstrap dotfiles status --missing  # Exit nonzero when out of sync
-mise bootstrap dotfiles diff              # Show required changes
-mise bootstrap dotfiles apply --dry-run   # Preview deployment
-mise bootstrap dotfiles apply             # Deploy tracked files
-mise bootstrap dotfiles unapply --dry-run # Preview link removal
-mise bootstrap dotfiles edit TARGET       # Edit a managed source
+mise dot status                      # Show deployment state, including orphans
+mise dot status --missing            # Exit nonzero for unapplied active entries
+mise dot diff                        # Show required changes
+mise dot apply --dry-run             # Preview deployment
+mise dot apply                       # Deploy tracked files
+mise dot apply --dry-run --prune      # Preview deployment and orphan cleanup
+mise dot apply --prune                # Deploy and remove orphaned files
+mise dot unapply --group zsh --dry-run # Preview removal of one group
+mise dot edit TARGET                 # Edit a managed source
 ```
