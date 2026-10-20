@@ -21,7 +21,7 @@
           "showShortcutLegend": false,
           "showQuickAdd": false,
           "showNextUp": true,
-          "showUpcomingDays": true,
+          "showUpcomingDays": false,
           "shortcutLegendExpanded": false,
           "language": "en"
         },
@@ -77,7 +77,7 @@
       ]
     },
     "position": "top",
-    "transparent": false
+    "transparent": true
   },
   "idle": {
     "lock": 300,
