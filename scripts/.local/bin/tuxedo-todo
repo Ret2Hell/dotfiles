@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Write directly into the repository: atomic saves would replace file symlinks.
+export TODO_DIR="$HOME/dotfiles/tuxedo"
+export TODO_FILE="$TODO_DIR/todo.txt"
+export DONE_FILE="$TODO_DIR/done.txt"
+
+mkdir -p "$TODO_DIR"
+cd "$TODO_DIR"
+if (( $# == 0 )); then
+  exec tuxedo "$TODO_FILE"
+fi
+exec tuxedo "$@"

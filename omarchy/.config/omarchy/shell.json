@@ -23,7 +23,8 @@
           "showNextUp": true,
           "showUpcomingDays": false,
           "shortcutLegendExpanded": false,
-          "language": "en"
+          "language": "en",
+          "duringEvent": "firstMinutes"
         },
         {
           "id": "omarchy.keyboard-layout"
@@ -69,6 +70,9 @@
           "id": "omarchy.network"
         },
         {
+          "id": "omarchy.bluetooth"
+        },
+        {
           "id": "omarchy.audio"
         },
         {
@@ -83,6 +87,10 @@
     "lock": 300,
     "screensaver": 150
   },
-  "plugins": [],
+  "plugins": [
+    {
+      "id": "typecraft.oma-cast"
+    }
+  ],
   "version": 1
 }

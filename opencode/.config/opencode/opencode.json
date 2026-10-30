@@ -1,40 +1,23 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "opencode-go/mimo-v2.6-pro",
-  "provider": {
+  "model": "openai/gpt-6.1-sol",
+  "providers": {
     "openai": {
+      "settings": {
+        "textVerbosity": "low"
+      },
       "models": {
-        "gpt-5.6-sol": {
-          "options": {
-            "textVerbosity": "low"
-          }
-        },
-        "gpt-5.6-luna": {
-          "options": {
-            "reasoningEffort": "max",
-            "textVerbosity": "low"
-          }
-        }
-      }
-    },
-    "opencode-go": {
-      "models": {
-        "deepseek-v4.1-flash": {
-          "options": {
-            "reasoningEffort": "max"
-          }
-        },
-        "mimo-v2.6-pro": {
-          "options": {
-            "reasoningEffort": "high"
+        "gpt-6.1-sol": {
+          "settings": {
+            "reasoningEffort": "medium"
           }
         }
       }
     }
   },
-  "agent": {
+  "agents": {
     "explore": {
-      "model": "opencode-go/mimo-v2.6-pro"
+      "model": "openai/gpt-6-luna#max"
     }
   },
   "mcp": {

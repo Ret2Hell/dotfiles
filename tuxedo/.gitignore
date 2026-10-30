@@ -1,0 +1,4 @@
+# Temporary files, advisory locks, and interrupted inbox drains stay local.
+*.tmp
+*.tuxedo-*
+config.toml

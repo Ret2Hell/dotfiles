@@ -198,6 +198,35 @@ mise dot apply --prune
 Changes to files already linked are immediately visible and may not produce an
 apply diff.
 
+## Tuxedo todo app
+
+`Super+Shift+U` opens Tuxedo centered and floating at 80% of the screen's width
+and height, without changing btop's size. The `scripts`
+group deploys `~/.local/bin/tuxedo-todo`; use that command from a terminal too:
+
+```sh
+tuxedo-todo
+tuxedo-todo add "Buy groceries +home"
+tuxedo-todo ls
+```
+
+Tasks live directly in `~/dotfiles/tuxedo/todo.txt`, archived tasks in
+`done.txt`, and phone captures in `inbox.txt`. These are not deployed as file
+symlinks: Tuxedo's atomic saves would replace those links. Run `tuxedo-todo`
+instead of bare `tuxedo` to select these files from any directory.
+
+Review and commit changes manually; nothing is automatically committed or pushed:
+
+```sh
+git diff -- tuxedo
+git add tuxedo/todo.txt tuxedo/done.txt tuxedo/inbox.txt
+git commit -m "tuxedo: update tasks"
+```
+
+Tasks may contain personal information: review before pushing to a public repo.
+Settings stay local in `~/.config/tuxedo/config.toml` because phone capture
+stores its secret `share_token` there. Locks and temporary files are ignored.
+
 ## Recovery
 
 The repository remains the source of truth, so use normal Git history to

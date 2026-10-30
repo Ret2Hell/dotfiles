@@ -51,11 +51,15 @@ o.bind("SUPER + SHIFT + F", "File manager", { tui = "yazi" })
 hl.unbind("SUPER + CTRL + T")
 o.bind("SUPER + SHIFT + T", "Activity", { tui = "btop" })
 
+-- Give Tuxedo its own floating-window size without changing btop.
+o.bind("SUPER + SHIFT + U", "Todo (Tuxedo)", "omarchy launch tui --app-id=org.omarchy.tuxedo tuxedo-todo")
+
 -- Move Spotify to the former Google Maps shortcut.
 hl.unbind("SUPER + SHIFT + S")
 o.bind("SUPER + SHIFT + S", "Music", { omarchy = "spotify" })
 
 hl.unbind("SUPER + SHIFT + M")
+o.bind("SUPER + SHIFT + M", "Betterbird", { launch = "betterbird" })
 
 -- Make the default agent easier to launch.
 hl.unbind("SUPER + SHIFT + CTRL + A")
