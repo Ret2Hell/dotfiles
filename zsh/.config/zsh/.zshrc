@@ -52,9 +52,19 @@ function z4h-copy-buffer() {
 }
 zle -N z4h-copy-buffer
 
+# Open lazygit without changing the current command line.
+function z4h-lazygit() {
+  emulate -L zsh
+  zle -I
+  command lazygit </dev/tty
+  zle reset-prompt
+}
+zle -N z4h-lazygit
+
 # Define key bindings.
 z4h bindkey z4h-backward-kill-word  Ctrl+Backspace     Ctrl+H
 z4h bindkey z4h-copy-buffer Ctrl+O
+z4h bindkey z4h-lazygit Ctrl+G
 
 # Autoload functions.
 autoload -Uz zmv
