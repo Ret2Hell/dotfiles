@@ -44,10 +44,7 @@ hl.unbind("SUPER + ALT + K")
 hl.unbind("SUPER + CTRL + RETURN")
 o.bind("SUPER + SHIFT + H", "Herdr", { omarchy = "terminal-herdr" })
 
--- Use terminal file manager and activity monitor shortcuts.
-hl.unbind("SUPER + SHIFT + F")
-o.bind("SUPER + SHIFT + F", "File manager", { tui = "yazi" })
-
+-- Use a terminal activity monitor shortcut.
 hl.unbind("SUPER + CTRL + T")
 o.bind("SUPER + SHIFT + T", "Activity", { tui = "btop" })
 
@@ -64,3 +61,11 @@ o.bind("SUPER + SHIFT + M", "Betterbird", { launch = "betterbird" })
 -- Make the default agent easier to launch.
 hl.unbind("SUPER + SHIFT + CTRL + A")
 o.bind("SUPER + A", "Agent", "omarchy-agent --pick")
+
+-- strata-installer: file-manager start
+hl.unbind("SUPER + SHIFT + F")
+hl.unbind("SUPER + ALT + SHIFT + F")
+o.bind("SUPER + SHIFT + F", "File manager", { launch = "/home/ret2hell/.local/bin/strata" })
+o.bind("SUPER + ALT + SHIFT + F", "File manager (cwd)",
+  "uwsm-app -- /home/ret2hell/.local/bin/strata \"$(omarchy-cmd-terminal-cwd)\"")
+-- strata-installer: file-manager end

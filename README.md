@@ -5,8 +5,8 @@ These dotfiles are managed with [mise](https://mise.jdx.dev/dotfiles.html)
 
 Each group's directory mirrors `$HOME`: for example,
 `zsh/.zshenv` deploys to `~/.zshenv`, and
-`yazi/.local/bin/omarchy-yazi-reload` deploys to
-`~/.local/bin/omarchy-yazi-reload`. Groups use `symlink-each`, so
+`nvim/.config/nvim/init.lua` deploys to
+`~/.config/nvim/init.lua`. Groups use `symlink-each`, so
 application-managed files can coexist with managed links.
 
 Every group uses `manifest = "git"`: only files in Git's index are deployed.
@@ -62,12 +62,6 @@ Group roots are relative to the `dotfiles.root` setting, which this repository
 sets to `~/dotfiles`. If you clone elsewhere, update that setting, for example
 in an ignored `mise.local.toml`.
 
-Yazi plugins are gitignored, so install them once per machine after the first apply:
-
-```sh
-ya pkg install
-```
-
 Mise refuses to replace conflicting regular files or directories. Compare and
 move any existing target out of the way before applying. Use `--force` only
 after reviewing the dry-run and confirming that the existing target can be
@@ -80,11 +74,11 @@ All groups apply by default. To select a subset, create an ignored
 
 ```toml
 [bootstrap]
-dotfile_groups = ["git", "zsh", "nvim", "yazi"]
+dotfile_groups = ["git", "zsh", "nvim"]
 ```
 
 Available groups: `git`, `herdr`, `hypr`, `kitty`, `nvim`, `omarchy`,
-`opencode`, `scripts`, `spicetify`, `yazi`, and `zsh`.
+`opencode`, `scripts`, `spicetify`, and `zsh`.
 
 The `scripts` group deploys `~/setup-omarchy-plugins`; the `spicetify` group
 also deploys `~/setup.sh`. Deselecting a group leaves its existing files in

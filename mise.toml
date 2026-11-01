@@ -40,10 +40,6 @@ manifest = "git"
 root = "spicetify"
 manifest = "git"
 
-[dotfile_groups.yazi]
-root = "yazi"
-manifest = "git"
-
 [dotfile_groups.zsh]
 root = "zsh"
 manifest = "git"
